@@ -17,5 +17,18 @@ header {
 
 /*Other Headers*/
 h1{
-    
+    color:#0ac7ec!important;
+    text-shadow: rgb(233, 233, 235) 2px 3px 0px;
+    padding: 4px;
+    font-size: 60px;
+    border-bottom: 2px solid #6c7175!important;
+}
+
+h3 {
+    color: #6c7175!important;
+}
+
+.h4 {
+    color: #6c7175!important;
+    margin-top: 40px;
 }
