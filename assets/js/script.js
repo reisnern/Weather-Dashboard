@@ -1,0 +1,12 @@
+var infoinput = document.getElementById("info-input")
+var sbutton = document.getElementById("s-button")
+var forecastcolumns = document.getElementById("forecast-columns")
+var city = document.querySelector("#city")
+var todaysweather = document.querySelector("#todays-weather")
+var temperature = document.querySelector("#temperature")
+var windspeed = document.querySelector("#wind-speed")
+var humiditypercentage = document.querySelector("#humidity-percentage")
+var uvindex = document.querySelector("#uv-index")
+var searched = JSON.parse(localStorage.getItem("searched")) || []
+var savedSearch = document.querySelector("#saved-input")
+var currentday = document.getElementById("current-day")
