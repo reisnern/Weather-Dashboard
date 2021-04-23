@@ -32,3 +32,38 @@ h3 {
     color: #6c7175!important;
     margin-top: 40px;
 }
+
+/*Columns*/
+.column{
+    margin-top: 10px;
+    border: 1.5px solid #6c7175!important;
+    border-radius: 20px;
+    margin-right: 4px;
+    text-align: center;
+}
+
+/*Left Search*/
+#s-button{
+    margin-top: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    outline: none;
+}
+
+.outer-frame {
+    border-top: 1px solid #6c7175!important;
+}
+
+#info-input {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#left-columns {
+    margin-top: 55px;
+    font-weight: 400px;
+}
