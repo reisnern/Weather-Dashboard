@@ -36,7 +36,7 @@ var list = function (searched) {
 for (var i = 0; i < searche.length; i++) {
     list(searchedcity[i])
 }
-// Get Wehater for today
+// Get Weather for today
 var todaysforecast = function (location) {
     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=81054108cea086276c96966b6bf32e1c&units=imperial"
 
@@ -61,4 +61,52 @@ var todaysforecast = function (location) {
 
                     var currentemp = document.createElement("p")
                     currentemp.textContent = "Temperature: " + data.main.temp + " °F"
-                    currentemp.appendChild(currenttemp);
+                    temperature.appendChild(currenttemp);
+
+                    var showwind = document.createElement("p")
+                    showwind.textContent = "Wind: " + data.wind.speed + " MPH"
+                    windspeed.appendChild(showwind);
+                    console.log(data);
+
+                    var humidity = document.createElement("p")
+                    humidity.textContent = "Humidity: " + data.main.humidity + "%"
+                    humiditypercentage.appendChild(humidity);
+
+                    getUV(data.coord.lat, data.coord.lon)
+                    searchInput.value = ""
+
+                    currentday.classList.add("column-1")
+
+                })
+        } else {
+            alert("Error: Location not found. Please enter a valid city name and try again.");
+        }
+    })
+}
+
+//Start UV Index
+var uvinfo = function (lat, lon) {
+    var apiURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&&appid=81054108cea086276c96966b6bf32e1c"
+    //console.log(lon, lat)
+    fetch(apiURL)
+        .then(function (response) {
+            if (response.ok) {
+                //console.log(response);
+                response.json().then(function (data) {
+                    //console.log(data);
+
+                    var button = document.createElement("button")
+                    if (data.value < 3) {
+                        button.classList.add("btn-success")
+                    } else if (data.value < 7) {
+                        button.classList.add("btn-warning")
+                    } else {
+                        button.classList.add("btn-danger")
+                    }
+                    button.textContent = "UV: " + data.value
+                    button.classList.add("uv")
+                    uvIndex.appendChild(btn);
+                })
+            }
+        })
+}
