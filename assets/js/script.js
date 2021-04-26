@@ -36,17 +36,17 @@ var citylist = function (searched) {
 for (var i = 0; i < searchedcity.length; i++) {
     citylist(searchedcity[i])
 }
-// Get Weather for today
+// Get Weather for today 
 var getweather = function (location) {
     var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=81054108cea086276c96966b6bf32e1c&units=imperial"
 
     fetch(apiURL)
-        then(function (response) {
+        .then(function (response) {
             if (response.ok) {
                //console.log(response); 
                 response.json().then(function (data) {
 
-                    if (searchedcity.indexOf(location) === -1 ){
+                    if (searchedcity.indexOf(location) === -1 ) {
                         searchedcity.push(location)
                         localStorage.setItem("searched", JSON.stringify(searchedcity))
                         citylist(location);
@@ -73,7 +73,7 @@ var getweather = function (location) {
                     phumidity.textContent = "Humidity: " + data.main.humidity + "%"
                     humiditypercent.appendChild(phumidity);
 
-                    getUV(data.coord.lat, data.coord.lon)
+                    uvinfo(data.coord.lat, data.coord.lon)
                     infoinput.value = ""
 
                     currentday.classList.add("column-1")
@@ -90,7 +90,7 @@ var uvinfo = function (lat, lon) {
     var apiURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&&appid=81054108cea086276c96966b6bf32e1c"
     //console.log(lon, lat)
     fetch(apiURL)
-        .then = (function (response) {
+        .then(function (response) {
             if (response.ok) {
                 //console.log(response);
                 response.json().then(function (data) {
