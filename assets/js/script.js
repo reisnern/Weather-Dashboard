@@ -26,7 +26,7 @@ var citylist = function (searched) {
 
             temperature.innerHTML = ""
             windspeed.innerHTML = ""
-            humiditypercent = ""
+            humiditypercent.innerHTML = ""
             uvindex.innerHTML = ""
             city.innerHTML = ""
 
@@ -60,8 +60,8 @@ var getweather = function (location) {
                     weatherimg.setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png")
                     h2.appendChild(weatherimg)
 
-                    var pcurrentemp = document.createElement("p")
-                    pcurrentemp.textContent = "temperature: " + data.main.temp + " °F"
+                    var pcurrenttemp = document.createElement("p")
+                    pcurrenttemp.textContent = "temperature: " + data.main.temp + " °F"
                     temperature.appendChild(pcurrenttemp);
 
                     var pshowwind = document.createElement("p")
@@ -106,7 +106,7 @@ var uvinfo = function (lat, lon) {
                     }
                     btn.textContent = "UV: " + data.value
                     btn.classList.add("uv")
-                    uvIndex.appendChild(btn);
+                    uvindex.appendChild(btn);
                 })
             }
         })
@@ -141,7 +141,7 @@ sbutton.addEventListener("click", function (event) {
     event.preventDefault()
     temperature.innerHTML = ""
     windspeed.innerHTML = ""
-    humiditypercent = ""
+    humiditypercent.innerHTML = ""
     uvindex.innerHTML = ""
     city.innerHTML = ""
     forecastcolumns.innerHTML = ""
